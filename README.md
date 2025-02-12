@@ -1,4 +1,3 @@
-
 # Introduction to Python Programming for Data Science
 
 ## Course Overview
@@ -28,7 +27,7 @@ This course consists of **15 sessions**, covering the following topics:
 | 9  | API Calls & JSON                | Using requests, parsing JSON, HTTP basics. |
 | 10 | File Handling                   | Reading/writing files, storing API data (CSV, JSON). |
 | 11 | NumPy Basics                    | Arrays vs. lists, vectorized operations, slicing arrays. |
-| 12 | pandas Basics                   | DataFrames, reading CSV, filtering, cleaning data. |
+| 12 | pandas Basics                   | DataFrames, reading CSV, filtering. |
 | 13 | Data Cleaning & Visualization    | Missing data handling, matplotlib basics, plotting. |
 | 14 | Integration & Review             | Combining OOP, API, and data analysis skills. |
 | 15 | Final Project Presentations      | Student demos, wrap-up, and next steps. |
