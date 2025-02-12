@@ -1,7 +1,7 @@
 # Introduction
 - What is Python?
 
-    Object oriented, Open-source
+    Object oriented, Open-source, high-level
 - Why python?
 
     Easy to learn, easy to use and understand, open-source, flexible, good community.
@@ -26,7 +26,7 @@
     Basic Python file type. Will run line by line, start to finish (if no exceptions).
 - .ipynb
 
-    Better suited for interactive programming, such as Data Science and ML.
+    Better suited for interactive programming, such as Data Science and ML. Runs in blocks of code.
 
 # Basic data types
 - int
@@ -50,9 +50,11 @@
     `int(input())`
 
 - Comments
-    `# This is a comment`
-    `### This is a multi-line comment`
-    `"""This is also a multi-line comment"""`
+    ```python
+    # This is a comment`
+    ### This is a multi-line comment`
+    """This is also a multi-line comment"""
+    ```
 
 # Strings
 - F-strings
@@ -114,13 +116,16 @@ while j <= 10:
 import math, random, time
 ```
 
+# Additional Resources
+- [W3Schools](https://www.w3schools.com/python/)
+- [Geeks for Geeks](https://www.geeksforgeeks.org/)
 ---
 # Examples
 - Calculator
-- Oddity
+- Oddity check
 - Prime numbers
-- Inflation calculating
-- factorial
+- Inflation calculator
+- factorial calculator
 
-# Homeworks
+# Homework
 - Expected value of dice
