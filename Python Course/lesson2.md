@@ -1,241 +1,295 @@
-# Session 2: Lists, Tuples, Dictionaries, and Sets
+# Python Data Structures: Lists, Tuples, Dictionaries, and Sets
 
 ## Introduction
-In this session, we will dive deeper into some fundamental Python data structures: **lists**, **tuples**, **dictionaries**, and **sets**. Each of these data structures serves a unique purpose in Python, making data handling more convenient and efficient.
 
----
+Python provides several built-in data structures that help us organize and manage data efficiently. In this lesson, we'll explore four fundamental data structures: lists, tuples, dictionaries, and sets. Each structure has its unique characteristics and use cases, making them suitable for different scenarios in programming.
+
 ## Lists
-A **list** in Python is an ordered, mutable collection of items. They are incredibly versatile and commonly used for storing sequences of data.
 
-### Creating a List
-```python
-# Creating a simple list
-fruits = ["apple", "banana", "cherry"]
+Lists are ordered collections of items that can be modified. Think of a list as a container that can hold multiple items, similar to a shopping list or a to-do list.
 
-# Lists can contain different data types
-mixed_list = [1, "Hello", 3.14, True]
-```
+### Creating Lists
 
-### Accessing and Modifying Elements
-- **Indexing**: Lists are zero-indexed.
-- **Slicing**: You can slice a list using `list[start:end]`.
-- **Mutability**: Elements of a list can be changed.
+We can create lists using square brackets `[]`:
 
 ```python
-# Indexing
-print(fruits[0])       # Output: apple
+# A simple list of numbers
+numbers = [1, 2, 3, 4, 5]
 
-# Slicing
-print(fruits[0:2])     # Output: ["apple", "banana"]
+# A list of strings
+fruits = ["apple", "banana", "orange"]
 
-# Changing a value
-fruits[1] = "mango"
-print(fruits)          # Output: ["apple", "mango", "cherry"]
+# A mixed list containing different types
+mixed = [1, "hello", 3.14, True]
+
+# An empty list
+empty_list = []
 ```
 
-### Common List Methods
-- **`append(x)`**: Adds `x` to the end of the list.
-- **`insert(i, x)`**: Inserts `x` at index `i`.
-- **`remove(x)`**: Removes the first occurrence of `x`.
-- **`pop(i)`**: Removes and returns the item at index `i` (by default, the last item).
-- **`extend(iterable)`**: Adds elements from an iterable (e.g., another list) to the end.
-- **`sort()`**: Sorts the list in-place.
-- **`reverse()`**: Reverses the list in-place.
+### Working with Lists
+
+Lists support various operations:
 
 ```python
-numbers = [10, 5, 8]
-numbers.append(12)
-print(numbers)     # [10, 5, 8, 12]
+# Accessing elements (indexing starts at 0)
+first_fruit = fruits[0]      # "apple"
+last_fruit = fruits[-1]      # "orange"
 
-numbers.insert(1, 7)
-print(numbers)     # [10, 7, 5, 8, 12]
+# Slicing lists
+some_fruits = fruits[0:2]    # ["apple", "banana"]
 
-numbers.remove(10)
-print(numbers)     # [7, 5, 8, 12]
+# Modifying elements
+fruits[1] = "grape"          # Changes "banana" to "grape"
 
-popped_value = numbers.pop()
-print(popped_value) # 12
-print(numbers)      # [7, 5, 8]
+# Adding elements
+fruits.append("mango")       # Adds to the end
+fruits.insert(1, "kiwi")     # Adds at specific position
+
+# Removing elements
+fruits.remove("apple")       # Removes first occurrence
+last = fruits.pop()          # Removes and returns last element
+
+# Finding length
+length = len(fruits)         # Number of items in the list
+
+# Checking membership
+has_apple = "apple" in fruits  # Returns True or False
 ```
 
----
 ## Tuples
-A **tuple** is an ordered, **immutable** collection of items. Once created, elements within a tuple cannot be changed.
 
-### Creating a Tuple
-```python
-tuple_example = ("red", "green", "blue")
+Tuples are similar to lists but are immutable, meaning they cannot be changed after creation. They're perfect for representing fixed collections of items, like coordinates or RGB colors.
 
-# Single-element tuple requires a trailing comma
-single_tuple = ("only one", )
-```
-
-### Accessing Elements
-- **Indexing**: Similar to lists, tuples are zero-indexed.
-- **Slicing**: Tuples can also be sliced.
+### Creating and Using Tuples
 
 ```python
-print(tuple_example[0])      # Output: red
-print(tuple_example[1:3])    # Output: ("green", "blue")
+# Creating tuples
+coordinates = (10, 20)
+rgb_color = (255, 128, 0)
+
+# Accessing elements
+x = coordinates[0]           # 10
+y = coordinates[1]           # 20
+
+# Trying to modify will cause an error
+# coordinates[0] = 30       # This would raise an error
+
+# Multiple assignment using tuples
+x, y = coordinates          # Unpacking the tuple
 ```
 
-### Immutability
-```python
-# This will raise an error because tuples are immutable
-# tuple_example[0] = "yellow"  # TypeError
-```
-
-Tuples are often used when you want data to remain unchanged or when returning multiple values from a function.
-
----
 ## Dictionaries
-A **dictionary** in Python is an **unordered** collection of key-value pairs. It is extremely useful for quick lookups when you know the key.
 
-### Creating a Dictionary
+Dictionaries store key-value pairs, similar to a real dictionary where each word (key) has a definition (value). They're perfect for mapping relationships between items.
+
+### Working with Dictionaries
+
 ```python
+# Creating a dictionary
 student = {
     "name": "Alice",
-    "age": 21,
-    "major": "Computer Science"
+    "age": 20,
+    "grades": [85, 92, 78]
 }
+
+# Accessing values
+name = student["name"]       # "Alice"
+age = student["age"]        # 20
+
+# Adding or modifying entries
+student["city"] = "New York"  # Adding new key-value pair
+student["age"] = 21          # Modifying existing value
+
+# Checking for keys
+has_name = "name" in student  # True
+
+# Getting values safely
+grade = student.get("grade", "Not found")  # Returns "Not found" if key doesn't exist
 ```
 
-### Accessing and Modifying Values
-- Use `dict_name[key]` to access a value.
-- Assign `dict_name[key] = value` to change or add entries.
-
-```python
-print(student["name"])        # Output: Alice
-
-student["age"] = 22           # Change an existing key's value
-student["graduation_year"] = 2024  # Add a new key-value pair
-print(student)
-```
-
-### Common Dictionary Methods
-- **`keys()`**: Returns a list-like object of all keys.
-- **`values()`**: Returns a list-like object of all values.
-- **`items()`**: Returns a list-like object of `(key, value)` pairs.
-- **`get(key, default)`**: Returns the value for `key` if it exists; otherwise returns `default`.
-- **`pop(key, default)`**: Removes the key and returns its value if it exists; otherwise returns `default`.
-
-```python
-print(student.keys())         # dict_keys(['name', 'age', 'major', 'graduation_year'])
-print(student.values())       # dict_values(['Alice', 22, 'Computer Science', 2024])
-print(student.items())        # dict_items([('name', 'Alice'), ('age', 22), ('major', 'Computer Science'), ('graduation_year', 2024)])
-
-removed_value = student.pop("major", None)
-print(removed_value)          # Computer Science
-print(student)
-```
-
----
 ## Sets
-A **set** in Python is an **unordered**, **mutable** collection of **unique** elements. It is often used for membership checking and to eliminate duplicate items.
 
-### Creating a Set
+Sets are unordered collections of unique elements. They're useful for removing duplicates and testing membership.
+
+### Using Sets
+
 ```python
-my_set = {1, 2, 3, 2}
-print(my_set)       # Output: {1, 2, 3}
+# Creating sets
+numbers = {1, 2, 3, 4, 5}
+more_numbers = {4, 5, 6, 7, 8}
+
+# Adding and removing elements
+numbers.add(6)              # Add single element
+numbers.remove(2)           # Remove element (raises error if not found)
+numbers.discard(10)         # Remove if present (no error if not found)
+
+# Set operations
+union = numbers | more_numbers          # All numbers from both sets
+intersection = numbers & more_numbers   # Numbers common to both sets
+difference = numbers - more_numbers     # Numbers in first set but not in second
 ```
 
-### Set Operations
-- **Union (`|` or `union()`)**: Combines elements from both sets.
-- **Intersection (`&` or `intersection()`)**: Elements common to both sets.
-- **Difference (`-` or `difference()`)**: Elements in one set but not the other.
-- **Symmetric difference (`^` or `symmetric_difference()`)**: Elements in either set, but not both.
+## Practical Exercises
 
+Let's practice using these data structures with increasingly challenging exercises.
+
+### Exercise 1: List Operations
+Create a program that manages a shopping list.
+
+Problem:
+1. Create an empty shopping list
+2. Add five items to the list
+3. Remove the second item
+4. Print the total number of items
+5. Check if "milk" is in the list
+
+Solution with explanation:
 ```python
-set_a = {1, 2, 3}
-set_b = {3, 4, 5}
+# Initialize empty shopping list
+shopping_list = []
 
-print(set_a | set_b)      # {1, 2, 3, 4, 5}
-print(set_a & set_b)      # {3}
-print(set_a - set_b)      # {1, 2}
-print(set_a ^ set_b)      # {1, 2, 4, 5}
+# Add items one by one
+shopping_list.append("milk")
+shopping_list.append("bread")
+shopping_list.append("eggs")
+shopping_list.append("cheese")
+shopping_list.append("fruit")
+print("After adding items:", shopping_list)
+
+# Remove second item (bread)
+shopping_list.pop(1)    # Index 1 is the second item
+print("After removing bread:", shopping_list)
+
+# Print total number of items
+print("Total items:", len(shopping_list))
+
+# Check for milk
+if "milk" in shopping_list:
+    print("Milk is in the list")
+else:
+    print("Milk is not in the list")
 ```
 
-### Common Set Methods
-- **`add(x)`**: Adds `x` to the set.
-- **`remove(x)`**: Removes `x` from the set (raises an error if `x` not found).
-- **`discard(x)`**: Removes `x` from the set if present (does not raise an error if `x` not found).
-- **`pop()`**: Removes and returns an arbitrary element.
-- **`clear()`**: Removes all items from the set.
+### Exercise 2: Dictionary Word Counter
+Create a program that counts how many times each word appears in a sentence.
 
+Problem:
+1. Take a sentence as input
+2. Convert it to lowercase and split into words
+3. Count occurrences of each word
+4. Print the results
+
+Solution with explanation:
 ```python
-my_set = {1, 2, 3}
-my_set.add(4)
-print(my_set)          # {1, 2, 3, 4}
+# Our sample sentence
+sentence = "the quick brown fox jumps over the lazy fox"
 
-my_set.remove(2)
-print(my_set)          # {1, 3, 4}
+# Convert to lowercase and split into words
+words = sentence.lower().split()
 
-popped = my_set.pop()
-print(popped, my_set)  # Possible output: 1 {3, 4}
-```
+# Create empty dictionary for counting
+word_count = {}
 
----
-## Iterating Through Collections
-
-### Iterating Over a List
-```python
-my_list = ["apple", "banana", "cherry"]
-for item in my_list:
-    print(item)
-```
-
-### Iterating Over a Tuple
-```python
-my_tuple = ("red", "green", "blue")
-for color in my_tuple:
-    print(color)
-```
-
-### Iterating Over a Dictionary
-```python
-# Iterating through keys
-for key in student:
-    print(key)
-
-# Iterating through values
-for value in student.values():
-    print(value)
-
-# Iterating through key-value pairs
-for key, value in student.items():
-    print(key, value)
-```
-
-### Iterating Over a Set
-```python
-unique_items = {"apple", "banana", "cherry"}
-for item in unique_items:
-    print(item)
-```
-
----
-## Additional Resources
-- [Real Python - Data Structures](https://realpython.com/tutorials/data-structures/)
-- [W3Schools on Python Data Structures](https://www.w3schools.com/python/python_lists.asp)
-
----
-## Examples
-1. **List Operations**: Explore list methods like `append()`, `sort()`, etc. with a real dataset.
-2. **Tuple Return Values**: Create a function that returns multiple values in a tuple.
-3. **Dictionary for Counting**: Use a dictionary to count occurrences of items in a list.
-4. **Set for Unique Values**: Convert a list of repeated values into a set.
-
-```python
-# Dictionary for counting example
-names = ["Alice", "Bob", "Alice", "Charles", "Bob", "Alice"]
-count_dict = {}
-
-for name in names:
-    if name in count_dict:
-        count_dict[name] += 1
+# Count each word
+for word in words:
+    # If word exists in dictionary, increment count
+    # If not, add it with count of 1
+    if word in word_count:
+        word_count[word] += 1
     else:
-        count_dict[name] = 1
+        word_count[word] = 1
 
-print(count_dict)  # Output: {'Alice': 3, 'Bob': 2, 'Charles': 1}
+# Print results
+for word, count in word_count.items():
+    print(f"'{word}' appears {count} times")
 ```
 
+### Exercise 3: Set Operations
+Find common elements between two lists without duplicates.
+
+Problem:
+1. Create two lists with some overlapping numbers
+2. Convert them to sets
+3. Find common elements
+4. Find elements unique to each list
+
+Solution with explanation:
+```python
+# Create two lists with some overlapping numbers
+list1 = [1, 2, 2, 3, 4, 5, 5, 6]
+list2 = [4, 5, 5, 6, 7, 7, 8, 9]
+
+# Convert lists to sets to remove duplicates
+set1 = set(list1)
+set2 = set(list2)
+
+# Find common elements (intersection)
+common = set1 & set2
+print("Common elements:", common)
+
+# Find unique elements in first list
+unique_to_list1 = set1 - set2
+print("Elements only in first list:", unique_to_list1)
+
+# Find unique elements in second list
+unique_to_list2 = set2 - set1
+print("Elements only in second list:", unique_to_list2)
+```
+
+### Exercise 4: Combined Data Structures
+Create a program to manage a simple classroom roster using multiple data structures.
+
+Problem:
+Create a system that:
+1. Stores student information (name and grades) in a dictionary
+2. Calculates average grades
+3. Identifies unique grade values
+4. Lists students with grades above average
+
+Solution with explanation:
+```python
+# Create dictionary of students and their grades
+students = {
+    "Alice": [85, 90, 92],
+    "Bob": [78, 85, 80],
+    "Charlie": [90, 92, 85],
+    "David": [75, 68, 75]
+}
+
+# Calculate average grade for each student
+averages = {}
+for student, grades in students.items():
+    # Calculate average and round to 2 decimal places
+    average = round(sum(grades) / len(grades), 2)
+    averages[student] = average
+
+# Find unique grades using a set
+all_grades = set()
+for grades in students.values():
+    # Add each grade to the set
+    # Duplicates will automatically be ignored
+    for grade in grades:
+        all_grades.add(grade)
+
+# Calculate class average
+class_average = sum(averages.values()) / len(averages)
+
+# Find students above average
+above_average = []
+for student, average in averages.items():
+    if average > class_average:
+        above_average.append(student)
+
+# Print results
+print("Student Averages:", averages)
+print("Unique Grades:", sorted(all_grades))
+print("Class Average:", round(class_average, 2))
+print("Students Above Average:", above_average)
+```
+
+Each exercise builds upon the previous ones and demonstrates practical applications of Python's data structures. Try modifying these exercises by:
+- Adding more features (like sorting, filtering)
+- Combining different data structures
+- Working with different types of data
+- Adding input validation
+- Creating more complex calculations
