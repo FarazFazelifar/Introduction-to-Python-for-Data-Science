@@ -21,7 +21,7 @@ This course consists of **15 sessions**, covering the following topics:
 | 3  | Lists, Tuples                   | Data structures, slicing, list methods. |
 | 4  | Dictionaries, Sets              | Key-value pairs, set operations, nested structures. |
 | 5  | Functions (Basics)              | Defining functions, parameters, return values. |
-| 6  | Advanced Functions & Error Handling | Recursion, lambda, try/except. |
+| 6  | Advanced Functions | Recursion, lambda. |
 | 7  | OOP Part 1                      | Classes, objects, constructors, attributes, methods. |
 | 8  | OOP Part 2                      | Inheritance, polymorphism, encapsulation. |
 | 9  | API Calls & JSON                | Using requests, parsing JSON, HTTP basics. |
