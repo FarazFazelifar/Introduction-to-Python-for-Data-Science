@@ -56,6 +56,23 @@ calculate_total(100, 0.08)    # 8% tax on $100
 calculate_total(50, 0.05)     # 5% tax on $50
 ```
 
+<details>
+<summary>Add later:</summary>
+
+arguments and keyword arguments:
+```python
+def func1(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+func1(12, 13, 14, kw1=1, kw2=2, kw3=3)
+
+# Output:
+# (12, 13, 14)
+# {"kw1" : 1, "kw2" : 2, "kw3" : 3}
+```
+</details>
+
 # Returning Values
 
 Functions can give back results using `return`:
@@ -100,7 +117,14 @@ print(make_sandwich())                    # Output: A cheese sandwich on white b
 print(make_sandwich("turkey"))            # Output: A turkey sandwich on white bread
 print(make_sandwich("tuna", "wheat"))     # Output: A tuna sandwich on wheat bread
 ```
+# Lambda Functions
+Lambda functions are concise, anonymous functions useful for simple operations. For example:
 
+```python
+# A lambda function to square a number
+square = lambda x: x * x
+print(square(5))  # Output: 25
+```
 # Functions Working Together
 
 Functions can work like a team, each doing a specific job:
